@@ -1,0 +1,39 @@
+alignment middle_right
+double_buffer yes
+own_window_transparent yes
+own_window yes
+own_window_type desktop
+use_xft yes
+xftfont Liberation Mono:size=10
+maximum_width 265
+default_color white
+uppercase no
+background yes
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
+update_interval 0.5 
+
+TEXT
+$sysname $kernel
+$machine $nodename
+${color white}${font OpenLogos:size=25}noisyboy@arch${font}
+$hr
+${color lightgrey}${font}Uptime:$color $uptime ${color lightgrey}
+${color green}CPU Usage:${color yellow} ${cpu}% ${color yellow}${cpubar 12,40}
+${color #ffac82}CPU$color: $freq MHz
+${color red}${cpugraph 25,215}
+${color lightgrey}RAM usage:$color $mem/$memmax - $memperc%
+${color lightgrey}Swap usage:$color $swap/$swapmax - $swapperc%
+
+/ usage: ${fs_used /} Total:${fs_size /}
+/home usage: ${fs_used /home} Total:${fs_size /home}
+
+${color #ff5a00}Name ${alignr} PID CPU% MEM%
+${color #ddaa00} ${top name 1} ${alignr}${top pid 1} ${top cpu 1} ${top mem 1}
+${color lightgrey} ${top name 2} ${alignr}${top pid 2} ${top cpu 2} ${top mem 2}
+${color lightgrey} ${top name 3} ${alignr}${top pid 3} ${top cpu 3} ${top mem 3}
+${color lightgrey} ${top name 4} ${alignr}${top pid 4} ${top cpu 4} ${top mem 4} 
+
+CPU1: ${cpu cpu1}% $freq MHz ${alignr}${cpubar cpu1 8,60}
+CPU2: ${cpu cpu2}% $freq MHz ${alignr}${cpubar cpu2 8,60} 
+CPU3: ${cpu cpu3}% $freq MHz ${alignr}${cpubar cpu2 8,60} 
+CPU4: ${cpu cpu4}% $freq MHz ${alignr}${cpubar cpu2 8,60} 
