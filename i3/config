@@ -1,0 +1,296 @@
+################################################################
+#                                                              #
+#       ██╗██████╗  ██████╗  █████╗ ██████╗ ███████╗           #
+#       ██║╚════██╗██╔════╝ ██╔══██╗██╔══██╗██╔════╝           #
+#       ██║ █████╔╝██║  ███╗███████║██████╔╝███████╗           #
+#       ██║ ╚═══██╗██║   ██║██╔══██║██╔═══╝ ╚════██║           #
+#       ██║██████╔╝╚██████╔╝██║  ██║██║     ███████║           #
+#       ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚══════╝           #
+#                                                              #
+#                  Config by: NoiSyBoY                         #
+#                                                              #
+################################################################
+
+set $mod Mod4
+
+set $gaps_inner_default 10
+set $gaps_outer_default 0
+gaps inner $gaps_inner_default
+gaps outer $gaps_outer_default
+
+font pango:Noto Sans Mono 9
+
+floating_modifier $mod
+
+new_window pixel 5
+default_border pixel 3
+
+# smart|urgent|focus|none
+focus_on_window_activation focus
+focus_follows_mouse no
+
+#################################################################
+#                         C O L O R S                           #
+#################################################################
+
+set_from_resource $bg background
+
+#class                    border                      background                   text                         indicator
+client.focused            $bg                         #a5073b                      $bg                          #a5073b
+client.focused_inactive   $bg                         #a5073b                      $bg                          #a5073b
+client.unfocused          $bg                         $bg                          $bg                          $bg
+client.urgent             $bg                         $bg                          $bg                          $bg
+client.placeholder        $bg                         $bg                          $bg                          $bg
+client.background         $bg                         $bg                          $bg                          $bg
+
+#################################################################
+#                      S H O R T C U T S                        #
+#################################################################
+
+# numpad
+set $KP_Add 86
+set $KP_Sub 82
+set $KP_Multi 63
+set $KP_1 87
+set $KP_2 88
+set $KP_3 89
+set $KP_4 83
+set $KP_5 84
+set $KP_6 85
+set $KP_7 79
+set $KP_8 80
+set $KP_9 81
+set $KP_0 90
+
+# Start a terminal
+bindsym $mod+Return exec termite
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+# Change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ccedilla focus right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split in horizontal orientation
+bindsym $mod+h split h
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Center
+bindsym $mod+Shift+c move position center
+
+# Restart
+bindsym $mod+Shift+r restart
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Start a Program
+bindsym $mod+d exec --no-startup-id $HOME/.config/i3/drun
+
+# Screenshot & Screencast
+bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots'
+
+# Volume controls
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2500
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2500
+
+# Music controls
+
+bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+# i3flip
+
+bindsym Mod4+Tab         exec --no-startup-id i3flip next
+bindsym Mod4+Shift+Tab   exec --no-startup-id i3flip prev
+
+#################################################################
+#                      W O R K S P A C E S                      #
+#################################################################
+
+set $ws1 ""
+set $ws2 ""
+set $ws3 ""
+set $ws4 ""
+set $ws5 ""
+set $ws6 ""
+set $ws7 ""
+set $ws8 ""
+set $ws9 ""
+set $ws10 ""
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
+#################################################################
+#                        W I N D O W S                          #
+#################################################################
+
+for_window [urgent="latest"] focus
+
+for_window [window_role="pop-up"] floating enable, move position center
+for_window [window_role="bubble"] floating enable, move position center
+for_window [window_role="task_dialog"] floating enable, move position center
+for_window [window_role="Preferences"] floating enable, move position center
+for_window [window_type="dialog"] floating enable, move position center
+for_window [window_type="menu"] floating enable, move position center
+
+assign [class="^(Opera|Brave)"] $ws1
+assign [class="(Termite)"] $ws2
+assign [class="^(Subl3)"] $ws3
+assign [class="(spotify)"] $ws4
+assign [class="(PCManFM)"] $ws5
+assign [class="(vlc|Stremio|Mplayer)"] $ws6
+assign [class="(telegram-desktop)"] $ws7
+assign [class="(Gimp|Inkscape|Feh|Eog)"] $ws8
+
+#################################################################
+#                        G R O U P S                            #
+#################################################################
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ccedilla resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+####################################################################
+#                            G A P S                               #
+####################################################################
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0|d (local), Shift + +|-|0|d (global)
+set $mode_gaps_inner Inner Gaps: +|-|0|d (local), Shift + +|-|0|d (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym d gaps inner current set $gaps_inner_default, mode "default"
+        bindsym Shift+d gaps inner all set $gaps_inner_default, mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym d gaps outer current set $gaps_outer_default, mode "default"
+        bindsym Shift+d gaps outer all set $gaps_outer_default, mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+#################################################################
+#                          I N I T                              #
+#################################################################
+
+exec_always --no-startup-id wal -R
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
