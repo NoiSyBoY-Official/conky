@@ -8,17 +8,9 @@ Using Sublime-Text <b>$ subl3 ~/.conkyrc</b>
 Using Nano <b>$ nano ~/.conkyrc</b>
 
 
-# Install and setup i3-gaps + polybar
+# How to setup i3-gaps + polybar
 
-sudo pacman -S i3-gaps i3status python-pywal awesome-terminal-fonts ttf-font-awesome otf-font-awesome
-
-git clone https://aur.archlinux.org/polybar.git
-
-cd polybar
-
-makepkg -s --skippgpcheck
-
-sudo pacman -U polybar-version.pkg.tar.xz
+sudo pacman -S i3status python-pywal awesome-terminal-fonts ttf-font-awesome otf-font-awesome
 
 git clone https://github.com/NoiSyBoY-Official/dotfiles.git
 
