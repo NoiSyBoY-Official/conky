@@ -18,6 +18,8 @@ cd dotfiles
 
 cp i3 ~/.config && cp polybar ~/.config
 
+<b>Install polybar icons</b>
+
 git clone https://aur.archlinux.org/ttf-font-awesome-4.git
 
 cd ttf-font-awesome-4.git
