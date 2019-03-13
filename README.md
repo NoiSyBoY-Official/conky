@@ -22,7 +22,7 @@ cp -r i3 ~/.config && cp -r polybar ~/.config
 
 git clone https://aur.archlinux.org/ttf-font-awesome-4.git
 
-cd ttf-font-awesome-4.git
+cd ttf-font-awesome-4
 
 makepkg -s --skippgpcheck
 
