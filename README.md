@@ -16,7 +16,7 @@ git clone https://github.com/NoiSyBoY-Official/dotfiles.git
 
 cd dotfiles
 
-cp i3 ~/.config && cp polybar ~/.config
+cp -r i3 ~/.config && cp -r polybar ~/.config
 
 <b>Install polybar icons</b>
 
