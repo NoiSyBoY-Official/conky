@@ -36,8 +36,8 @@ focus_follows_mouse no
 set_from_resource $bg background
 
 #class                    border                      background                   text                         indicator
-client.focused            $bg                         #a5073b                      $bg                          #a5073b
-client.focused_inactive   $bg                         #a5073b                      $bg                          #a5073b
+client.focused            $bg                         #6b5d8c                      $bg                          #6b5d8c
+client.focused_inactive   $bg                         #6b5d8c                      $bg                          #6b5d8c
 client.unfocused          $bg                         $bg                          $bg                          $bg
 client.urgent             $bg                         $bg                          $bg                          $bg
 client.placeholder        $bg                         $bg                          $bg                          $bg
@@ -134,14 +134,14 @@ bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots'
 
 # Volume controls
 
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2500
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2500
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2.5+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2.5-
 
 # Music controls
 
-bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 # i3flip
 
@@ -203,7 +203,7 @@ for_window [window_type="menu"] floating enable, move position center
 
 assign [class="^(Opera|Brave)"] $ws1
 assign [class="(Termite)"] $ws2
-assign [class="^(Subl3)"] $ws3
+assign [class="^(Subl3|pycharm)"] $ws3
 assign [class="(spotify)"] $ws4
 assign [class="(PCManFM)"] $ws5
 assign [class="(vlc|Stremio|Mplayer)"] $ws6
@@ -294,3 +294,5 @@ mode "$mode_gaps_outer" {
 
 exec_always --no-startup-id wal -R
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id nm-applet
+exec_always --no-startup-id compton --config ~/.config/compton.conf &
