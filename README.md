@@ -1,4 +1,4 @@
-# How to setup Conky in Arch Linux:
+# How to setup Conky on Arch Linux:
 
 Create a file named .conkyrc in your home
 
@@ -19,10 +19,6 @@ cd dotfiles
 cp -r i3 ~/.config && cp -r polybar ~/.config
 
 <b>Install polybar icons</b>
-
-sudo pacman -Ss ttf-font-awesome
-
-sudo pacman -S ttf-font-awesome4
 
 sudo pacman -S font-awesome
 
