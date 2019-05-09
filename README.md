@@ -12,7 +12,7 @@ Using Nano <b>$ nano ~/.conkyrc</b>
 
 sudo pacman -S i3status python-pywal awesome-terminal-fonts ttf-font-awesome otf-font-awesome
 
-git clone https://github.com/NoiSyBoY-Official/dotfiles.git
+git clone https://github.com/noisyboy-official/dotfiles.git
 
 cd dotfiles
 
