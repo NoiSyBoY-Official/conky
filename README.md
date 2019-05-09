@@ -18,6 +18,10 @@ cd dotfiles
 
 cp -r i3 ~/.config && cp -r polybar ~/.config
 
+cd ~/.config/i3 && chmod 777 drun
+
+cd ~/.config/ && chmod 777 launch.sh
+
 <b>Install polybar icons</b>
 
 sudo pacman -S font-awesome
