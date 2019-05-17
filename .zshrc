@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/noisyboy/.oh-my-zsh"
+  export COR=/home/$USER/.cache/wal/colors.sh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -95,8 +96,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-wal -R
-clear
-clear
+(cat /home/$USER/.cache/wal/sequences &)
 echo
-neofetch
+neofetch | lolcat -S 15
