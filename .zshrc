@@ -97,5 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 (cat /home/$USER/.cache/wal/sequences &)
+if [ "$TMUX" = "" ]; then tmux; fi
+./agnoster.tmux
 echo
-neofetch | lolcat -S 15
+neofetch
