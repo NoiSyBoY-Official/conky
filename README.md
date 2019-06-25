@@ -21,17 +21,3 @@ cp -r i3 ~/.config && cp -r polybar ~/.config
 cd ~/.config/i3 && chmod 777 drun
 
 cd ~/.config/polybar && chmod 777 launch.sh
-
-<b>Install polybar icons</b>
-
-sudo pacman -S font-awesome
-
-sudo pacman -S otf-font-awesome
-
-git clone https://aur.archlinux.org/ttf-font-awesome-4.git
-
-cd ttf-font-awesome-4/
-
-makepkg -s --skippgpcheck
-
-sudo pacman -U ttf-font-awesome-4-4.7.0-5-any.pkg.tar.xz 
